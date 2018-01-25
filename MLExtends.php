@@ -72,7 +72,8 @@ class MLExtends
      */
     public function __construct()
     {
-        $this->gridConfig = Config::default(new GridDefaultConfiguration)::get('ViewObjects', 'mlgrid');
+        $this->gridConfig = Config::default('ZN\Language\GridDefaultConfiguration')
+                                  ::get('ViewObjects', 'mlgrid');
 
         $mlDir = $this->directory;
 
