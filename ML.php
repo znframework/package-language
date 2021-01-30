@@ -42,6 +42,8 @@ class ML extends Factory
      */
     public function lang(String $lang = 'tr') : Bool
     {
+        Properties::$select = NULL;
+        
         return Lang::set($lang);
     }
 }
