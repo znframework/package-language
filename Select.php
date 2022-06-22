@@ -32,7 +32,7 @@ class Select extends MLExtends
 
             if( is_file($this->externalLang) )
             {
-                $eread  = file_get_contents($this->externalLang);
+                $eread  = file_get_contents($this->externalLang); // @codeCoverageIgnore
             }
 
             $read                = json_decode($read  ?? '', true);
@@ -49,11 +49,11 @@ class Select extends MLExtends
         {
             if( is_array($convert) )
             {
-                $return = str_replace(array_keys($convert), array_values($convert), Properties::$select[$key]);
+                $return = str_replace(array_keys($convert), array_values($convert), Properties::$select[$key] ?? '');
             }
             else
             {
-                $return = str_replace('%', $convert, Properties::$select[$key]);
+                $return = str_replace('%', $convert ?? '', Properties::$select[$key] ?? '');
             }
         }
         else
@@ -107,7 +107,7 @@ class Select extends MLExtends
                 return json_decode($read, true);
             }   
 
-            return [];
+            return []; // @codeCoverageIgnore
         }
     }
 
